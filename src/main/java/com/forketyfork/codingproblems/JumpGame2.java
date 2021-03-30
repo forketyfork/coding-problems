@@ -7,7 +7,7 @@ import java.util.Arrays;
  * element in the array represents your maximum jump length at that position. Your goal is to reach the last index
  * in the minimum number of jumps. You can assume that you can always reach the last index.
  *
- * @see <a href="https://leetcode.com/problems/jump-game-ii/">LeetCode #45. Jump Game II</a>\
+ * @see <a href="https://leetcode.com/problems/jump-game-ii/">LeetCode #45. Jump Game II</a>
  * @see "Daily Coding Problem #511"
  * @see <a href="https://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/">Minimum number of jumps to reach end</a>
  */
