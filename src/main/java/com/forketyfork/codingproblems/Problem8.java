@@ -11,13 +11,15 @@ import com.forketyfork.codingproblems.structures.TreeNode;
  * <p>
  * For example, the following tree has 5 unival subtrees:
  * <p>
- * 0
- * / \
- * 1   0
- * / \
- * 1   0
- * / \
- * 1   1
+ * <pre>
+ *       0
+ *      / \
+ *     1   0
+ *        / \
+ *       1   0
+ *      / \
+ *     1   1
+ * </pre>
  *
  * @see "Daily Coding Problem #8"
  */
