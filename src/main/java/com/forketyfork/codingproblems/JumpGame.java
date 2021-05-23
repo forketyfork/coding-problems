@@ -17,6 +17,7 @@ package com.forketyfork.codingproblems;
  *
  * @see <a href="https://leetcode.com/problems/jump-game/">LeetCode #55. Jump Game</a>
  * @see "Daily Coding Problem #512"
+ * @see "Daily Coding Problem #565"
  */
 public class JumpGame {
 
