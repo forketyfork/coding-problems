@@ -26,11 +26,11 @@ class StrangePrinterTest {
         );
     }
 
-    private StrangePrinter strangePrinter = new StrangePrinter();
+    private final StrangePrinter strangePrinter = new StrangePrinter();
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, strangePrinter.strangePrinter(testCase.string));
     }
 

@@ -21,11 +21,11 @@ class ThousandSeparatorTest {
         );
     }
 
-    private ThousandSeparator thousandSeparator = new ThousandSeparator();
+    private final ThousandSeparator thousandSeparator = new ThousandSeparator();
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, thousandSeparator.thousandSeparator(testCase.n));
     }
 

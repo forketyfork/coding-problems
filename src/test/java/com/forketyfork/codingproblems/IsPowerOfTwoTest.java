@@ -27,11 +27,11 @@ class IsPowerOfTwoTest {
         );
     }
 
-    private IsPowerOfTwo isPowerOfTwo = new IsPowerOfTwo();
+    private final IsPowerOfTwo isPowerOfTwo = new IsPowerOfTwo();
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, isPowerOfTwo.isPowerOfTwo(testCase.n));
     }
 

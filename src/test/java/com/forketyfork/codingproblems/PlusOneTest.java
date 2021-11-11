@@ -26,7 +26,7 @@ class PlusOneTest {
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertArrayEquals(testCase.expected, new PlusOne().plusOne(testCase.array));
     }
 

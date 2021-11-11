@@ -28,7 +28,7 @@ public class ValidPalindromeTest {
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, new ValidPalindrome().isPalindrome(testCase.string));
     }
 

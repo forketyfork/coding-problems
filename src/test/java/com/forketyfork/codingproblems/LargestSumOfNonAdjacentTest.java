@@ -26,7 +26,7 @@ class LargestSumOfNonAdjacentTest {
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, new LargestSumOfNonAdjacent().largestSumOfNonAdjacent(testCase.array));
     }
 

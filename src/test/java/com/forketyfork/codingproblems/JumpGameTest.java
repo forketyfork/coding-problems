@@ -22,11 +22,11 @@ class JumpGameTest {
         );
     }
 
-    private JumpGame jumpGame = new JumpGame();
+    private final JumpGame jumpGame = new JumpGame();
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, jumpGame.canJump(testCase.array));
     }
 

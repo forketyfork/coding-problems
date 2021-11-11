@@ -26,7 +26,7 @@ public class TwoSumExistsTest {
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, new TwoSumExists().check(testCase.target, testCase.array));
     }
 

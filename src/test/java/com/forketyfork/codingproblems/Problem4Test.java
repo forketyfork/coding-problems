@@ -32,7 +32,7 @@ public class Problem4Test {
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, new Problem4().calculate(testCase.array));
     }
 

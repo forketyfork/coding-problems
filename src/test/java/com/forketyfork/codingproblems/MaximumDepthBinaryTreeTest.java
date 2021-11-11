@@ -16,7 +16,7 @@ class MaximumDepthBinaryTreeTest {
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, new MaximumDepthBinaryTree().maxDepth(testCase.tree));
     }
 

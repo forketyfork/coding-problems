@@ -25,11 +25,11 @@ class SortedListRemoveDuplicatesTest {
         );
     }
 
-    private SortedListRemoveDuplicates sortedListRemoveDuplicates = new SortedListRemoveDuplicates();
+    private final SortedListRemoveDuplicates sortedListRemoveDuplicates = new SortedListRemoveDuplicates();
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, sortedListRemoveDuplicates.deleteDuplicates(testCase.head));
     }
 

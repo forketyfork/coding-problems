@@ -38,7 +38,7 @@ public class Problem8Test {
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, new Problem8().countUnivalTrees(testCase.node));
     }
 

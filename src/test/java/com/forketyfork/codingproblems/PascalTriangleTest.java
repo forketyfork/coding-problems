@@ -27,11 +27,11 @@ class PascalTriangleTest {
         );
     }
 
-    private PascalTriangle pascalTriangle = new PascalTriangle();
+    private final PascalTriangle pascalTriangle = new PascalTriangle();
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, pascalTriangle.generate(testCase.numRows));
     }
 

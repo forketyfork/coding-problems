@@ -21,11 +21,11 @@ class SortingTheSentenceTest {
         );
     }
 
-    private SortingTheSentence sortingTheSentence = new SortingTheSentence();
+    private final SortingTheSentence sortingTheSentence = new SortingTheSentence();
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, sortingTheSentence.sortSentence(testCase.sentence));
     }
 

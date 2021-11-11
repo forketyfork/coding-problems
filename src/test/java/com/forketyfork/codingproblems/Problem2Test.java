@@ -23,7 +23,7 @@ public class Problem2Test {
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertArrayEquals(testCase.expected, new Problem2().calculate(testCase.array));
     }
 

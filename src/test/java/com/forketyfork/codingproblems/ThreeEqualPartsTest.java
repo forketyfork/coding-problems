@@ -29,11 +29,11 @@ class ThreeEqualPartsTest {
         );
     }
 
-    private ThreeEqualParts threeEqualParts = new ThreeEqualParts();
+    private final ThreeEqualParts threeEqualParts = new ThreeEqualParts();
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertArrayEquals(testCase.expected, threeEqualParts.threeEqualParts(testCase.array));
     }
 

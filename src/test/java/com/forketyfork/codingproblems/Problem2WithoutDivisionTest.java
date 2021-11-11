@@ -23,7 +23,7 @@ public class Problem2WithoutDivisionTest {
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertArrayEquals(testCase.expected, new Problem2WithoutDivision().calculate(testCase.array));
     }
 

@@ -14,7 +14,7 @@ public class CountAndSayTest {
 
     @ParameterizedTest
     @MethodSource("source")
-    public void test(TestCase testCase) {
+    void test(TestCase testCase) {
         assertEquals(testCase.expected, new CountAndSay().countAndSay(testCase.n));
     }
 
