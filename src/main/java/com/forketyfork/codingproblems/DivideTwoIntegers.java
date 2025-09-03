@@ -12,7 +12,7 @@ class DivideTwoIntegers {
         long ldividend = Math.abs((long) dividend);
         long ldivisor = Math.abs((long) divisor);
         boolean sign = dividend >= 0 && divisor >= 0 || dividend < 0 && divisor < 0;
-        int result = 0;
+        long result = 0;
         long multiplier = 1;
         long shiftedDivisor = ldivisor;
         while (shiftedDivisor <= ldividend) {
@@ -27,6 +27,6 @@ class DivideTwoIntegers {
             multiplier >>= 1;
             shiftedDivisor >>= 1;
         }
-        return sign ? result : -result;
+        return (int) (sign ? result : -result);
     }
 }
