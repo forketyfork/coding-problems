@@ -30,10 +30,10 @@ jobs:
         restore-keys: ${{ runner.os }}-m2
         
     - name: Compile
-      run: mvn clean compile --warning-mode fail
+      run: mvn clean compile
       
     - name: Test
-      run: mvn test --warning-mode fail
+      run: mvn test
       
     - name: Package
-      run: mvn package --warning-mode fail
+      run: mvn package
