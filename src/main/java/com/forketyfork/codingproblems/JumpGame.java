@@ -21,14 +21,29 @@ package com.forketyfork.codingproblems;
  */
 public class JumpGame {
 
+    /**
+     * Determines if it's possible to jump from the first index to the last index.
+     * Uses a greedy approach working backwards from the end.
+     *
+     * @param nums array where nums[i] represents the maximum jump length from index i
+     * @return true if the last index can be reached, false otherwise
+     *
+     * <p>Time Complexity: O(n) where n is the length of the array
+     * <p>Space Complexity: O(1)
+     *
+     * <p>Algorithm: Work right to left. Track the closest position from which we know
+     * we can reach the end. For each position i, check if we can jump to that closest position.
+     * If yes, update closest to i. If closest reaches 0, we can jump from start to end.
+     */
     public boolean canJump(int[] nums) {
-        int closest = nums.length - 1;
+        int closest = nums.length - 1;  // Closest position from which we can reach the end
         for (int i = closest - 1; i >= 0; i--) {
+            // If from position i we can reach or pass the closest reachable position
             if (i + nums[i] >= closest) {
-                closest = i;
+                closest = i;  // Update: we can now reach the end from position i
             }
         }
-        return closest == 0;
+        return closest == 0;  // Check if we can reach the end from the start
     }
 
 }

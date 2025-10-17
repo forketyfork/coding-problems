@@ -12,12 +12,22 @@ import com.forketyfork.codingproblems.structures.TreeNode;
  */
 public class MaximumDepthBinaryTree {
 
+    /**
+     * Calculates the maximum depth of a binary tree using recursion.
+     * The depth is the number of nodes along the longest path from root to leaf.
+     *
+     * @param root the root of the binary tree
+     * @return the maximum depth of the tree
+     *
+     * <p>Time Complexity: O(n) where n is the number of nodes in the tree
+     * <p>Space Complexity: O(h) where h is the height of the tree (recursion stack)
+     */
     public int maxDepth(TreeNode root) {
-        // base case when the tree is empty
+        // Base case: empty tree has depth 0
         if (root == null) {
             return 0;
         }
-        // recursive call with the left and the right part of the tree
+        // Recursive case: 1 (current node) + max depth of left or right subtree
         return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
     }
 

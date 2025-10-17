@@ -9,9 +9,19 @@ package com.forketyfork.codingproblems;
  */
 class ValidPalindrome {
 
+    /**
+     * Checks if a string is a palindrome, considering only alphanumeric characters and ignoring case.
+     * Uses two-pointer technique for O(1) space complexity.
+     *
+     * @param s the string to check
+     * @return true if the string is a palindrome, false otherwise
+     *
+     * <p>Time Complexity: O(n) where n is the length of the string
+     * <p>Space Complexity: O(1)
+     */
     public boolean isPalindrome(String s) {
 
-        // start with two pointers to the leftmost and the rightmost character
+        // Start with two pointers to the leftmost and rightmost character
         int p1 = 0, p2 = s.length() - 1;
 
         while (p1 < p2) {
@@ -37,14 +47,24 @@ class ValidPalindrome {
         return true;
     }
 
-    // we can use !Character.isNumber(c) && !Character.isLetter(c) instead,
-    // but since the character set is limited to ASCII, we can implement it in a more performant way
+    /**
+     * Checks if a character is not alphanumeric using ASCII bounds.
+     * More performant than Character.isLetter/isDigit for ASCII-only strings.
+     *
+     * @param c the character to check
+     * @return true if not alphanumeric, false otherwise
+     */
     private boolean isNotAlphanumeric(char c) {
         return (c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9');
     }
 
-    // we can use Character.toLowerCase(c) instead, but since the character is limited to ASCII,
-    // we can implement it in a more performant way
+    /**
+     * Converts a character to lowercase using ASCII arithmetic.
+     * More performant than Character.toLowerCase for ASCII-only strings.
+     *
+     * @param c the character to convert
+     * @return the lowercase version of the character
+     */
     private char toLowerCase(char c) {
         if (c >= 'A' && c <= 'Z') {
             return (char) (c + 32); // c - 'A' + 'a'

@@ -1,4 +1,30 @@
-*.iml
-.idea/
+# Build output
 target/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak

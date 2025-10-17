@@ -22,31 +22,51 @@ public class Trie {
     private Trie[] children = new Trie[26];
 
     /**
-     * Initialize your data structure here.
+     * Initializes the Trie data structure with an empty root node.
+     * Each node can have up to 26 children (one for each lowercase letter).
+     *
+     * <p>Time Complexity: O(1)
+     * <p>Space Complexity: O(1)
      */
     public Trie() {
 
     }
 
     /**
-     * Inserts a word into the trie.
+     * Inserts a word into the trie. The method recursively traverses the trie,
+     * creating new nodes as needed for each character in the word.
+     *
+     * @param word the word to insert (must contain only lowercase letters a-z)
+     *
+     * <p>Time Complexity: O(n) where n is the length of the word
+     * <p>Space Complexity: O(n) for the recursive call stack, plus O(n) for new nodes if the word doesn't share prefixes
      */
     public void insert(String word) {
         if (word.isEmpty()) {
+            // Mark this node as the end of a complete word
             this.end = true;
         }
         else {
+            // Calculate the index for the first character (a=0, b=1, ..., z=25)
             int idx = word.charAt(0) - 'a';
             if (children[idx] == null) {
                 var trie = new Trie();
                 children[idx] = trie;
             }
+            // Recursively insert the rest of the word
             children[idx].insert(word.substring(1));
         }
     }
 
     /**
-     * Returns if the word is in the trie.
+     * Searches for a complete word in the trie. A word is considered to exist only if
+     * it was previously inserted and the end marker is set at the final character's node.
+     *
+     * @param word the word to search for (must contain only lowercase letters a-z)
+     * @return true if the word exists in the trie, false otherwise
+     *
+     * <p>Time Complexity: O(n) where n is the length of the word
+     * <p>Space Complexity: O(n) for the recursive call stack
      */
     public boolean search(String word) {
         if (word.isEmpty()) {
@@ -57,7 +77,14 @@ public class Trie {
     }
 
     /**
-     * Returns if there is any word in the trie that starts with the given prefix.
+     * Checks if there is any word in the trie that starts with the given prefix.
+     * Unlike search(), this method doesn't require the prefix to be a complete word.
+     *
+     * @param prefix the prefix to search for (must contain only lowercase letters a-z)
+     * @return true if any word in the trie starts with the given prefix, false otherwise
+     *
+     * <p>Time Complexity: O(n) where n is the length of the prefix
+     * <p>Space Complexity: O(n) for the recursive call stack
      */
     public boolean startsWith(String prefix) {
         if (prefix.isEmpty()) {

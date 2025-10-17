@@ -12,11 +12,24 @@ package com.forketyfork.codingproblems;
  */
 public class IsPowerOfTwo {
 
+    /**
+     * Determines if an integer is a power of two by counting set bits.
+     * A number is a power of two if and only if it has exactly one bit set in its binary representation.
+     *
+     * @param n the integer to check
+     * @return true if n is a power of two, false otherwise
+     *
+     * <p>Time Complexity: O(log n) where n is the input value (number of bits)
+     * <p>Space Complexity: O(1)
+     *
+     * <p>Note: This handles non-positive values correctly as the loop condition is n > 0.
+     * An alternative O(1) solution would be: n > 0 && (n & (n - 1)) == 0
+     */
     public boolean isPowerOfTwo(int n) {
         int setBitCount = 0;
         while (n > 0) {
-            setBitCount += (n & 1);
-            n >>= 1;
+            setBitCount += (n & 1);  // Add 1 if the least significant bit is set
+            n >>= 1;  // Shift right to check the next bit
         }
         return setBitCount == 1;
     }

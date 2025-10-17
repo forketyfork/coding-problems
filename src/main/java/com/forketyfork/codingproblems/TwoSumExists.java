@@ -14,9 +14,23 @@ import java.util.HashSet;
  */
 public class TwoSumExists {
 
+    /**
+     * Checks if any two numbers in the array add up to the target in a single pass.
+     * Uses a HashSet to track seen values for O(1) lookups.
+     *
+     * @param target the target sum
+     * @param array the array of integers
+     * @return true if two numbers add up to target, false otherwise
+     *
+     * <p>Time Complexity: O(n) where n is the length of the array
+     * <p>Space Complexity: O(n) for the HashSet
+     *
+     * <p>This is the bonus solution that does it in one pass.
+     */
     public boolean check(int target, int[] array) {
         var seen = new HashSet<Integer>();
         for (int value : array) {
+            // Check if the complement (target - value) has been seen
             if (seen.contains(target - value)) {
                 return true;
             }

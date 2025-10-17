@@ -10,6 +10,16 @@ package com.forketyfork.codingproblems;
  * @see <a href="https://leetcode.com/problems/n-th-tribonacci-number/">LeetCode #1137. N-th Tribonacci Number</a>
  */
 class Tribonacci {
+    /**
+     * Calculates the nth Tribonacci number using dynamic programming.
+     * The Tribonacci sequence is similar to Fibonacci but sums the previous three numbers.
+     *
+     * @param n the index in the Tribonacci sequence (0-indexed)
+     * @return the nth Tribonacci number
+     *
+     * <p>Time Complexity: O(n)
+     * <p>Space Complexity: O(n) for the array (could be optimized to O(1) with rolling variables)
+     */
     public int tribonacci(int n) {
         if (n == 0) {
             return 0;

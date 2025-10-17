@@ -31,8 +31,24 @@ import static com.forketyfork.codingproblems.structures.RandomPointerListNode.no
  */
 class CopyListWithRandomPointer {
 
+    /**
+     * Creates a deep copy of a linked list where each node has a random pointer.
+     * This solution uses an interleaving technique to avoid using extra space for a HashMap.
+     *
+     * @param head the head of the original linked list
+     * @return the head of the deep copied linked list
+     *
+     * <p>Time Complexity: O(n) where n is the number of nodes
+     * <p>Space Complexity: O(1) auxiliary space (excluding the output list)
+     *
+     * <p>Algorithm:
+     * 1. Interleave: Insert a copy of each node right after the original node
+     * 2. Set random pointers: For each copy, set random = original.random.next
+     * 3. Separate: Extract the copied nodes into a separate list
+     */
     public RandomPointerListNode copyRandomList(RandomPointerListNode head) {
 
+        // Phase 1: Create copied nodes and interleave them with originals
         var p = head;
         while (p != null) {
             var newp = p.next;
@@ -42,12 +58,14 @@ class CopyListWithRandomPointer {
             p = newp;
         }
 
+        // Phase 2: Set random pointers for copied nodes
         p = head;
         while (p != null) {
             p.next.random = p.random == null ? null : p.random.next;
             p = p.next.next;
         }
 
+        // Phase 3: Separate the copied list from the original list
         p = head;
         var dummy = node(0);
         var curr = dummy;

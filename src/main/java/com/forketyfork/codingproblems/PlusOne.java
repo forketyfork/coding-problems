@@ -11,10 +11,24 @@ package com.forketyfork.codingproblems;
  */
 class PlusOne {
 
+    /**
+     * Increments an integer represented as an array of digits by one.
+     * The most significant digit is at the head of the array.
+     *
+     * @param digits the array representing the integer
+     * @return a new array representing the incremented integer
+     *
+     * <p>Time Complexity: O(n) where n is the number of digits
+     * <p>Space Complexity: O(1) in most cases, O(n) when overflow occurs (e.g., 999 -> 1000)
+     *
+     * <p>Algorithm: Walk from right to left. Add 1 to rightmost digit. If < 10, done.
+     * Otherwise, handle carry by setting digit to 0 and continuing left. If all digits
+     * are 9, create new array with leading 1.
+     */
     public int[] plusOne(int[] digits) {
 
-        // walking the array from right to left, searching for the first digit which is not 9
-        // this digit can be increased without carry
+        // Walk the array from right to left, searching for the first digit which is not 9
+        // This digit can be increased without carry
         for (int i = digits.length - 1; i >= 0; i--) {
 
             int digitValue = digits[i] + 1;

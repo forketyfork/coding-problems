@@ -16,6 +16,17 @@ package com.forketyfork.codingproblems;
  */
 public class CheckIfNumbersAreAscending {
 
+    /**
+     * Checks if all numbers in the sentence are in strictly ascending order.
+     * The method parses numbers on-the-fly while iterating through the string,
+     * comparing each number with the previous one.
+     *
+     * @param s the sentence string containing tokens separated by single spaces
+     * @return true if all numbers are strictly increasing from left to right, false otherwise
+     *
+     * <p>Time Complexity: O(n) where n is the length of the string
+     * <p>Space Complexity: O(1) - only uses a constant amount of extra space
+     */
     public boolean areNumbersAscending(String s) {
         int previousNumber = 0;
         int currentNumber = 0;
@@ -23,6 +34,7 @@ public class CheckIfNumbersAreAscending {
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (c == ' ') {
+                // End of a token - check if it was a number
                 if (currentNumber > 0) {
                     if (currentNumber <= previousNumber) {
                         return false;
@@ -32,9 +44,11 @@ public class CheckIfNumbersAreAscending {
                 }
             }
             else if (c >= '0' && c <= '9') {
+                // Build the current number digit by digit
                 currentNumber = currentNumber * 10 + (c - '0');
             }
         }
+        // Check the last token if it's a number
         return currentNumber == 0 || currentNumber > previousNumber;
     }
 

@@ -21,6 +21,15 @@ package com.forketyfork.codingproblems;
  */
 public class CountAndSay {
 
+    /**
+     * Generates the nth term of the count-and-say sequence recursively.
+     *
+     * @param n the term number (1-indexed)
+     * @return the nth term of the count-and-say sequence
+     *
+     * <p>Time Complexity: O(2^n) in the worst case, as each term can be roughly twice the length of the previous term
+     * <p>Space Complexity: O(2^n) for storing the result string, plus O(n) for recursion stack
+     */
     public String countAndSay(int n) {
         if (n == 1) {
             return "1";
@@ -28,6 +37,15 @@ public class CountAndSay {
         return convert(countAndSay(n - 1));
     }
 
+    /**
+     * Converts a string by counting consecutive identical characters.
+     * For each group of identical characters, outputs the count followed by the character.
+     *
+     * @param string the input string to convert
+     * @return the converted string in count-and-say format
+     *
+     * <p>Example: "3322251" -> "23" (two 3's) + "32" (three 2's) + "15" (one 5) + "11" (one 1) = "23321511"
+     */
     private String convert(String string) {
         var builder = new StringBuilder();
         var count = 1;
@@ -38,11 +56,13 @@ public class CountAndSay {
                 count++;
             }
             else {
+                // Append count and character for the completed group
                 builder.append(count).append(prev);
                 prev = next;
                 count = 1;
             }
         }
+        // Append the last group
         builder.append(count).append(prev);
         return builder.toString();
     }

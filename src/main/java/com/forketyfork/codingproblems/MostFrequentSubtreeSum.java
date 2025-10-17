@@ -18,9 +18,22 @@ import java.util.Map;
  */
 public class MostFrequentSubtreeSum {
 
+    /**
+     * Finds the most frequent subtree sum(s) in a binary tree.
+     * If there's a tie, returns all sums with the highest frequency.
+     *
+     * @param root the root of the binary tree
+     * @return an array of the most frequent subtree sums
+     *
+     * <p>Time Complexity: O(n) where n is the number of nodes
+     * <p>Space Complexity: O(n) for the HashMap storing counts and recursion stack
+     */
     public int[] findFrequentTreeSum(TreeNode root) {
         Map<Integer, Integer> counts = new HashMap<>();
+        // Calculate subtree sums and count their frequencies
         calculateSubtreeSum(root, counts);
+
+        // Find the maximum frequency and collect all sums with that frequency
         List<Integer> maxSums = new ArrayList<>();
         int maxSumCount = Integer.MIN_VALUE;
         for (Map.Entry<Integer, Integer> entry : counts.entrySet()) {
@@ -33,6 +46,8 @@ public class MostFrequentSubtreeSum {
                 maxSumCount = entry.getValue();
             }
         }
+
+        // Convert list to array
         int[] result = new int[maxSums.size()];
         for (int i = 0; i < maxSums.size(); i++) {
             result[i] = maxSums.get(i);
@@ -40,14 +55,23 @@ public class MostFrequentSubtreeSum {
         return result;
     }
 
+    /**
+     * Recursively calculates the subtree sum for each node and tracks frequencies.
+     *
+     * @param tree the current node
+     * @param counts map tracking frequency of each subtree sum
+     * @return the sum of all values in the subtree rooted at this node
+     */
     private int calculateSubtreeSum(TreeNode tree, Map<Integer, Integer> counts) {
         if (tree == null) {
             return 0;
         }
+        // Sum = current node value + left subtree sum + right subtree sum
         int sum = tree.val
                 + calculateSubtreeSum(tree.left, counts)
                 + calculateSubtreeSum(tree.right, counts);
 
+        // Increment count for this subtree sum
         counts.merge(sum, 1, Integer::sum);
         return sum;
     }
